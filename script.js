@@ -1,5 +1,5 @@
-// Check that LightweightCharts loaded
-if (typeof LightweightCharts !== "undefined") {
+
+window.addEventListener("DOMContentLoaded", function () {
     const chartContainer = document.getElementById("chart");
 
     const chart = LightweightCharts.createChart(chartContainer, {
@@ -23,7 +23,6 @@ if (typeof LightweightCharts !== "undefined") {
 
     const candleSeries = chart.addCandlestickSeries();
 
-    // Sample test data
     const sampleData = [
         { time: 1716172800, open: 100, high: 105, low: 95, close: 102 },
         { time: 1716176400, open: 102, high: 110, low: 101, close: 108 },
@@ -32,6 +31,4 @@ if (typeof LightweightCharts !== "undefined") {
     ];
 
     candleSeries.setData(sampleData);
-} else {
-    console.error("❌ LightweightCharts library did not load.");
-}
+});
