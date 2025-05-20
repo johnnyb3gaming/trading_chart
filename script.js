@@ -21,8 +21,8 @@ const chart = LightweightCharts.createChart(document.getElementById('chart'), {
 const candleSeries = chart.addCandlestickSeries();
 
 // Replace this with your own API key and symbol
-const API_KEY = 'YOUR_API_KEY';
-const SYMBOL = 'AAPL';
+const API_KEY = '1d57beed45a147d69d4de08e724a8ab8';
+const SYMBOL = 'EUR/USD';
 const API_URL = `https://api.twelvedata.com/time_series?symbol=${SYMBOL}&interval=1min&outputsize=30&apikey=${API_KEY}`;
 
 fetch(API_URL)
