@@ -1,45 +1,37 @@
+// Ensure the library exists
+const chartContainer = document.getElementById('chart');
 
-const chart = LightweightCharts.createChart(document.getElementById('chart'), {
-    width: window.innerWidth,
-    height: 600,
-    layout: {
-        background: { color: '#111' },
-        textColor: '#eee',
-    },
-    grid: {
-        vertLines: { color: '#444' },
-        horzLines: { color: '#444' },
-    },
-    priceScale: {
-        borderColor: '#666',
-    },
-    timeScale: {
-        borderColor: '#666',
-    },
-});
-
-const candleSeries = chart.addCandlestickSeries();
-
-// Replace this with your own API key and symbol
-const API_KEY = '1d57beed45a147d69d4de08e724a8ab8';
-const SYMBOL = 'EUR/USD';
-const API_URL = `https://api.twelvedata.com/time_series?symbol=${SYMBOL}&interval=1min&outputsize=30&apikey=${API_KEY}`;
-
-fetch(API_URL)
-    .then(response => response.json())
-    .then(data => {
-        if (data && data.values) {
-            const formattedData = data.values.reverse().map(bar => ({
-                time: new Date(bar.datetime).getTime() / 1000,
-                open: parseFloat(bar.open),
-                high: parseFloat(bar.high),
-                low: parseFloat(bar.low),
-                close: parseFloat(bar.close)
-            }));
-            candleSeries.setData(formattedData);
-        }
+if (window.LightweightCharts) {
+    const chart = LightweightCharts.createChart(chartContainer, {
+        width: chartContainer.clientWidth,
+        height: 600,
+        layout: {
+            background: { color: '#111' },
+            textColor: '#eee',
+        },
+        grid: {
+            vertLines: { color: '#444' },
+            horzLines: { color: '#444' },
+        },
+        priceScale: {
+            borderColor: '#666',
+        },
+        timeScale: {
+            borderColor: '#666',
+        },
     });
 
-document.getElementById('toggle-theme').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-});
+    const candleSeries = chart.addCandlestickSeries();
+
+    // Sample data to test chart
+    const sampleData = [
+        { time: 1683921600, open: 100, high: 105, low: 95, close: 102 },
+        { time: 1683925200, open: 102, high: 110, low: 101, close: 108 },
+        { time: 1683928800, open: 108, high: 112, low: 106, close: 109 },
+        { time: 1683932400, open: 109, high: 115, low: 107, close: 114 },
+    ];
+
+    candleSeries.setData(sampleData);
+} else {
+    console.error("LightweightCharts is not loaded.");
+}
