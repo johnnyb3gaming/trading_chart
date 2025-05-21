@@ -1,24 +1,37 @@
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    color: #eee;
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #eee;
+  margin: 0;
+  padding: 0;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-    background-color: #222;
+header, footer {
+  text-align: center;
+  background-color: #222;
+  padding: 10px;
 }
 
-#chart {
-    height: 600px;
+.chart-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
 }
 
-.dark-mode {
-    background-color: #eee;
-    color: #111;
+.chart-block {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  padding: 10px;
+  margin: 10px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.chart-container {
+  height: 300px;
+  margin-top: 10px;
+  background-color: #000;
 }
