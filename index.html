@@ -3,61 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gridline Chart - Ultimate</title>
+  <title>Gridline - Ultimate Trading Chart</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/lightweight-charts@4.1.0/dist/lightweight-charts.standalone.production.js"></script>
 </head>
 <body>
   <header>
-    <h1>Gridline Ultimate Trading Chart</h1>
-    <p>Powered by Gridline</p>
+    <h1>Gridline Trading Platform</h1>
+    <button id="add-chart">+ Add Chart</button>
   </header>
-  <main>
-    <div class="chart-grid">
-      <div class="chart-block">
-        <h2>Chart 1</h2>
-        <input type="text" placeholder="Symbol (e.g., AAPL, BTC/USD)" id="symbol1" />
-        <select id="type1">
-          <option value="candlestick">Candlestick</option>
-          <option value="line">Line</option>
-          <option value="area">Area</option>
-          <option value="bar">Bar</option>
-          <option value="heikinashi">Heikin Ashi</option>
-        </select>
-        <button onclick="loadChart(1)">Load</button>
-        <div id="chart1" class="chart-container"></div>
-      </div>
-      <div class="chart-block">
-        <h2>Chart 2</h2>
-        <input type="text" placeholder="Symbol (e.g., MSFT, ETH/USD)" id="symbol2" />
-        <select id="type2">
-          <option value="candlestick">Candlestick</option>
-          <option value="line">Line</option>
-          <option value="area">Area</option>
-          <option value="bar">Bar</option>
-          <option value="heikinashi">Heikin Ashi</option>
-        </select>
-        <button onclick="loadChart(2)">Load</button>
-        <div id="chart2" class="chart-container"></div>
-      </div>
-      <div class="chart-block">
-        <h2>Chart 3</h2>
-        <input type="text" placeholder="Symbol (e.g., EUR/USD, SPY)" id="symbol3" />
-        <select id="type3">
-          <option value="candlestick">Candlestick</option>
-          <option value="line">Line</option>
-          <option value="area">Area</option>
-          <option value="bar">Bar</option>
-          <option value="heikinashi">Heikin Ashi</option>
-        </select>
-        <button onclick="loadChart(3)">Load</button>
-        <div id="chart3" class="chart-container"></div>
+  <main id="chart-container">
+    <div class="chart-block">
+      <canvas id="chart1" class="chart"></canvas>
+      <div class="journal-panel" id="journal1">
+        <h2>Journal</h2>
+        <textarea placeholder="Entry Notes"></textarea>
+        <button>Export</button>
       </div>
     </div>
   </main>
-  <footer>
-    <p>Powered by Gridline</p>
-  </footer>
+  <footer><p>Powered by Gridline</p></footer>
   <script src="script.js"></script>
 </body>
 </html>
